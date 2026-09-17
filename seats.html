@@ -1,0 +1,29 @@
+{% extends 'booking/base.html' %}
+{% block content %}
+<h3>Select Seat for {{movie.name}}</h3>
+<form method="POST" action="/book/">
+{% csrf_token %}
+<input type="hidden" name="movie_id" value="{{movie.id}}">
+
+<div>
+{% for i in '123456789' %}
+{% for j in '123456789' %}
+{% with seat=i|add:j %}
+<div class="seat {% if seat in booked %}booked{% endif %}" onclick="selectSeat('{{seat}}')">{{seat}}</div>
+{% endwith %}
+{% endfor %}
+<br>
+{% endfor %}
+</div>
+<input type="hidden" name="seat" id="seat">
+<input type="text" name="name" placeholder="Enter Name" class="form-control mt-3" required>
+<button class="btn btn-primary mt-3">Confirm Booking</button>
+</form>
+
+<script>
+function selectSeat(s){
+    document.getElementById('seat').value = s;
+    alert("Selected Seat: " + s);
+}
+</script>
+{% endblock %}

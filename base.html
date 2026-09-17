@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Movie Booking</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {
+    background: linear-gradient(45deg,#141e30,#243b55);
+    color:white;
+}
+.card {
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.seat {
+    width:40px;
+    height:40px;
+    margin:5px;
+    background:green;
+    display:inline-block;
+    cursor:pointer;
+}
+.booked {
+    background:red;
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+<div class="container">
+<a class="navbar-brand">🎬 Movie Booking</a>
+<a href="/report" class="btn btn-warning">Report</a>
+</div>
+</nav>
+<div class="container mt-4">
+{% block content %}{% endblock %}
+</div>
+</body>
+</html>

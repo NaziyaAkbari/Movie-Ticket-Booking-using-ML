@@ -1,0 +1,18 @@
+{% extends 'booking/base.html' %}
+{% block content %}
+<h2>🎬 Now Showing</h2>
+<div class="row">
+{% for m in movies %}
+<div class="col-md-4">
+<div class="card bg-dark text-white">
+<img src="{{m.image}}" class="card-img-top">
+<div class="card-body">
+<h5>{{m.name}}</h5>
+<p>{{m.description}}</p>
+<a href="/seats/{{m.id}}" class="btn btn-success">Book Now</a>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
